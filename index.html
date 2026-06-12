@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DISORDER — Client Questionnaire</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header>
+  <div class="dtitle">DISORDER</div>
+  <div class="subtitle">— LIVE IT UR WAY —</div>
+  <div class="meta">CLIENT QUESTIONNAIRE — MARKET RESEARCH</div>
+</header>
+
+<div class="pbar"><div class="pfill" id="pfill" style="width:0%"></div></div>
+
+<div class="wrap">
+  <!-- SECTION 1 -->
+  <div id="sec0" class="fi">
+    <div class="badge">SECTION 1 — YOU</div>
+    <div class="qblock">
+      <div class="qlabel">1. How old are you?</div>
+      <button class="obtn" data-q="age" data-v="< 18"><span class="icon">○</span>&lt; 18</button>
+      <button class="obtn" data-q="age" data-v="18–24"><span class="icon">○</span>18–24</button>
+      <button class="obtn" data-q="age" data-v="25–34"><span class="icon">○</span>25–34</button>
+      <button class="obtn" data-q="age" data-v="35–44"><span class="icon">○</span>35–44</button>
+      <button class="obtn" data-q="age" data-v="45 and over"><span class="icon">○</span>45 and over</button>
+    </div>
+    <div class="qblock">
+      <div class="qlabel">2. Gender</div>
+      <button class="obtn" data-q="gender" data-v="Male"><span class="icon">○</span>Male</button>
+      <button class="obtn" data-q="gender" data-v="Female"><span class="icon">○</span>Female</button>
+    </div>
+    <div class="qblock">
+      <div class="qlabel">3. Where do you live? (City / Country)</div>
+      <input class="tinput" type="text" id="location" placeholder="Type here..."/>
+    </div>
+    <div class="navrow">
+      <button class="nbtn" onclick="goTo(1)">NEXT →</button>
+      <span class="scnt">1 / 3</span>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div id="sec1" class="hidden">
+    <div class="badge">SECTION 2 — YOUR HABITS</div>
+    <div class="qblock">
+      <div class="qlabel">4. How often do you buy streetwear clothing?</div>
+      <button class="obtn" data-q="frequency" data-v="Several times a month"><span class="icon">○</span>Several times a month</button>
+      <button class="obtn" data-q="frequency" data-v="Once a month"><span class="icon">○</span>Once a month</button>
+      <button class="obtn" data-q="frequency" data-v="Every 2–3 months"><span class="icon">○</span>Every 2–3 months</button>
+      <button class="obtn" data-q="frequency" data-v="A few times a year"><span class="icon">○</span>A few times a year</button>
+      <button class="obtn" data-q="frequency" data-v="Rarely / Never"><span class="icon">○</span>Rarely / Never</button>
+    </div>
+    <div class="qblock">
+      <div class="qlabel">5. Average budget per item?</div>
+      <button class="obtn" data-q="budget" data-v="< 200 DH"><span class="icon">○</span>&lt; 200 DH</button>
+      <button class="obtn" data-q="budget" data-v="200–500 DH"><span class="icon">○</span>200–500 DH</button>
+      <button class="obtn" data-q="budget" data-v="500–1,000 DH"><span class="icon">○</span>500–1,000 DH</button>
+      <button class="obtn" data-q="budget" data-v="1,000–1,500 DH"><span class="icon">○</span>1,000–1,500 DH</button>
+      <button class="obtn" data-q="budget" data-v="> 1,500 DH"><span class="icon">○</span>&gt; 1,500 DH</button>
+    </div>
+    <div class="qblock">
+      <div class="qlabel">6. Where do you most often buy your clothes? (multiple choices)</div>
+      <button class="obtn cbx" data-q="buyWhere" data-v="Brand e-commerce websites"><span class="icon">□</span>Brand e-commerce websites</button>
+      <button class="obtn cbx" data-q="buyWhere" data-v="Multi-brand platforms (Zalando, ASOS…)"><span class="icon">□</span>Multi-brand platforms (Zalando, ASOS…)</button>
+      <button class="obtn cbx" data-q="buyWhere" data-v="Physical stores / concept stores"><span class="icon">□</span>Physical stores / concept stores</button>
+      <button class="obtn cbx" data-q="buyWhere" data-v="Social media (Instagram, TikTok Shop)"><span class="icon">□</span>Social media (Instagram, TikTok Shop)</button>
+      <button class="obtn cbx" data-q="buyWhere" data-v="Second-hand (Vinted, Depop…)"><span class="icon">□</span>Second-hand (Vinted, Depop…)</button>
+    </div>
+    <div class="navrow">
+      <button class="bbtn" onclick="goTo(0)">← BACK</button>
+      <button class="nbtn" onclick="goTo(2)">NEXT →</button>
+      <span class="scnt">2 / 3</span>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div id="sec2" class="hidden">
+    <div class="badge">SECTION 3 — YOUR PREFERENCES</div>
+    <div class="qblock">
+      <div class="qlabel">7. Which criteria are most important to you? (Rate 1–5)</div>
+      <div class="rnums"><div class="rnum">1</div><div class="rnum">2</div><div class="rnum">3</div><div class="rnum">4</div><div class="rnum">5</div></div>
+      <div class="rrow"><span class="rlabel">Material quality</span><div class="rdots" data-c="Material quality"></div></div>
+      <div class="rrow"><span class="rlabel">Design / Visual identity</span><div class="rdots" data-c="Design / Visual identity"></div></div>
+      <div class="rrow"><span class="rlabel">Price</span><div class="rdots" data-c="Price"></div></div>
+      <div class="rrow"><span class="rlabel">Ethics / Responsible production</span><div class="rdots" data-c="Ethics / Responsible production"></div></div>
+      <div class="rrow"><span class="rlabel">Exclusivity / Limited edition</span><div class="rdots" data-c="Exclusivity / Limited edition"></div></div>
+    </div>
+    <div class="qblock">
+      <div class="qlabel">8. How did you discover DISORDER?</div>
+      <button class="obtn cbx" data-q="discover" data-v="Instagram"><span class="icon">□</span>Instagram</button>
+      <button class="obtn cbx" data-q="discover" data-v="TikTok"><span class="icon">□</span>TikTok</button>
+      <button class="obtn cbx" data-q="discover" data-v="Friend recommendation"><span class="icon">□</span>Friend recommendation</button>
+      <button class="obtn cbx" data-q="discover" data-v="Google search"><span class="icon">□</span>Google search</button>
+      <button class="obtn cbx" data-q="discover" data-v="Other"><span class="icon">□</span>Other</button>
+    </div>
+    <div class="qblock">
+      <div class="qlabel">9. Anything you'd like to tell us?</div>
+      <textarea class="tinput" id="message" placeholder="Your thoughts..."></textarea>
+    </div>
+    <div class="navrow">
+      <button class="bbtn" onclick="goTo(1)">← BACK</button>
+      <button class="nbtn" onclick="submitForm()">SUBMIT ✓</button>
+      <span class="scnt">3 / 3</span>
+    </div>
+  </div>
+
+  <!-- THANK YOU PAGE -->
+  <div id="thankYou" class="hidden">
+    <div style="text-align:center;padding:40px 20px">
+      <div class="tytitle">THANKS</div>
+      <div class="tymeta">Your response has been recorded</div>
+    </div>
+    <div id="loadingMsg" style="text-align:center;margin:30px 0">
+      <span class="spin"></span> Analyzing your response...
+    </div>
+    <div id="resultArea" class="hidden">
+      <div style="margin-bottom:2rem">
+        <div class="ailabel">AI CUSTOMER PROFILE & RECOMMENDATIONS</div>
+        <div class="sbox" id="aiSummary"></div>
+      </div>
+      <div class="estatus" id="emailStatus"></div>
+      <div class="footer">Your data helps us build DISORDER better. 🔴</div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
