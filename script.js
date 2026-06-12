@@ -77,8 +77,8 @@ function formatAnswers(){
     `5. Average budget per item?\n  ➜ ${answers.budget||'No answer'}`,
     `6. Where do you buy clothes?\n  ➜ ${answers.buyWhere.length?answers.buyWhere.join(', '):'No answer'}`,
     `7. Criteria ratings:\n${Object.entries(answers.criteria).map(([k,v])=>`  • ${k}: ${v}/5`).join('\n')||'  No answer'}`,
-    `8. How did you discover DISORDER?\n  ➜ ${answers.discover.length?answers.discover.join(', '):'No answer'}`,
-    `9. Message for DISORDER:\n  ➜ ${answers.message||'No answer'}`,
+    `8. How did you discover DESORDER?\n  ➜ ${answers.discover.length?answers.discover.join(', '):'No answer'}`,
+    `9. Message for DESORDER:\n  ➜ ${answers.message||'No answer'}`,
   ].join('\n\n');
 }
 
@@ -106,7 +106,7 @@ async function submitForm(){
       body:JSON.stringify({
         model:'claude-3-sonnet-20240229',
         max_tokens:1000,
-        messages:[{role:'user',content:`You are a brand analyst for DISORDER streetwear. A customer filled this questionnaire:\n\n${formatted}\n\nWrite a punchy 3-sentence customer profile for the DISORDER team (raw, direct tone). Then give 2 product recommendations based on their answers.`}]
+        messages:[{role:'user',content:`You are a brand analyst for DESORDER streetwear. A customer filled this questionnaire:\n\n${formatted}\n\nWrite a punchy 3-sentence customer profile for the DESORDER team (raw, direct tone). Then give 2 product recommendations based on their answers.`}]
       })
     });
     const data = await res.json();
@@ -123,7 +123,7 @@ async function submitForm(){
         'Accept': 'application/json'
       },
       body: JSON.stringify({
-        _subject: "🔴 DISORDER — New Response",
+        _subject: "🔴 DESORDER — New Response",
         Answers: formatted,
         AI_Summary: aiSummary,
         Date: new Date().toLocaleString('fr-MA')
